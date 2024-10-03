@@ -219,7 +219,7 @@ nav {
 .pml-main {
   padding-top: 66px;
 }
-.pml-main section {
+.pml-main .animated {
   overflow: hidden;
 }
 @media (max-width: 600px) {
@@ -652,4 +652,10 @@ nav {
     transform: translateY(0);
     opacity: 1;
   }
+}
+.pml-header.scroll-up {
+  top: -60px;
+}
+.pml-header.scroll-down {
+  top: 0px;
 }

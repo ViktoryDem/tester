@@ -22,30 +22,64 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("load", function () {
-  const header = document.querySelector(".pml-header");
-  let lastScrollTop = 0;
+  var scrolling;
+  var position = 0;
+  var delta = 5;
+  var header = document.querySelector(".pml-header");
+  var docHeight = document.documentElement.scrollHeight;
+  var winHeight = window.innerHeight;
 
-  window.addEventListener("scroll", function () {
-    toggleHeaderOnScroll();
+  window.addEventListener("scroll", function (event) {
+    scrolling = true;
   });
 
-  function toggleHeaderOnScroll() {
-    let currentScrollPosition =
-      window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScrollPosition > lastScrollTop) {
-      header.classList.add("hide");
-    } else {
-      header.classList.remove("hide");
+  setInterval(function () {
+    if (scrolling) {
+      scrollFunction();
+      scrolling = false;
     }
-    lastScrollTop = Math.max(currentScrollPosition, 0);
+  }, 250);
+
+  function scrollFunction() {
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (Math.abs(position - st) <= delta) return;
+
+    if (st > position && st > header.offsetHeight) {
+      header.classList.remove("scroll-down");
+      header.classList.add("scroll-up");
+    } else {
+      if (st + winHeight < docHeight) {
+        header.classList.remove("scroll-up");
+        header.classList.add("scroll-down");
+      }
+    }
+    position = st;
   }
+
+  // const header = document.querySelector(".pml-header");
+  // let lastScrollTop = 0;
+
+  // window.addEventListener("scroll", function () {
+  //   toggleHeaderOnScroll();
+  // });
+
+  // function toggleHeaderOnScroll() {
+  //   let currentScrollPosition =
+  //     window.pageYOffset || document.documentElement.scrollTop;
+  //   if (currentScrollPosition > lastScrollTop) {
+  //     header.classList.add("hide");
+  //   } else {
+  //     header.classList.remove("hide");
+  //   }
+  //   lastScrollTop = Math.max(currentScrollPosition, 0);
+  // }
 });
 
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-  const header = document.querySelector(".pml-header");
-  if (header && header.classList.contains("hide")) {
-    header.classList.remove("hide");
-  }
-  toggleHeaderOnScroll();
-};
+// window.onbeforeunload = function () {
+//   window.scrollTo(0, 0);
+//   const header = document.querySelector(".pml-header");
+//   if (header && header.classList.contains("hide")) {
+//     header.classList.remove("hide");
+//   }
+// };
