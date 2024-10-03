@@ -41,10 +41,11 @@ window.addEventListener("load", function () {
   }
 });
 
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-//   const header = document.querySelector(".pml-header");
-//   if (header && header.classList.contains("hide")) {
-//     header.classList.remove("hide");
-//   }
-// };
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+  const header = document.querySelector(".pml-header");
+  if (header && header.classList.contains("hide")) {
+    header.classList.remove("hide");
+  }
+  toggleHeaderOnScroll();
+};
