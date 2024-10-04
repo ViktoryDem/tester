@@ -141,9 +141,6 @@ body {
 .pml-header.hide {
   transform: translate3d(0, -100%, 0);
 }
-.pml-header.scroll-up {
-  transform: translate3d(0, -100%, 0);
-}
 .pml-header__row {
   padding-block: 17px;
   display: flex;
