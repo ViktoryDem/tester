@@ -41,20 +41,24 @@ window.addEventListener("load", function () {
   }, 250);
 
   function scrollFunction() {
-    var st = window.pageYOffset || document.documentElement.scrollTop;
+    var currentScrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop;
 
-    if (Math.abs(position - st) <= delta) return;
+    if (Math.abs(position - currentScrollPosition) <= delta) return;
 
-    if (st > position && st > header.offsetHeight) {
+    if (
+      currentScrollPosition > position &&
+      currentScrollPosition > header.offsetHeight
+    ) {
       header.classList.remove("scroll-down");
       header.classList.add("scroll-up");
     } else {
-      if (st + winHeight < docHeight) {
+      if (currentScrollPosition + winHeight < docHeight) {
         header.classList.remove("scroll-up");
         header.classList.add("scroll-down");
       }
     }
-    position = st;
+    position = currentScrollPosition;
   }
 
   // const header = document.querySelector(".pml-header");
@@ -78,8 +82,8 @@ window.addEventListener("load", function () {
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
-//   const header = document.querySelector(".pml-header");
-//   if (header && header.classList.contains("hide")) {
-//     header.classList.remove("hide");
-//   }
+  // const header = document.querySelector(".pml-header");
+  // if (header && header.classList.contains("hide")) {
+  //   header.classList.remove("hide");
+  // }
 };
