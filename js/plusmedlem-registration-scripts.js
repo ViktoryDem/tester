@@ -67,7 +67,6 @@ function validateEmail() {
 
 function validatePhoneNumber() {
   let phoneValue = phone.value.trim();
-  console.log(phoneValue);
   if (phoneValue === "" || phoneValue.length <= 3) {
     setErrorFor(phone, "Telefonnummeret må ikke være tomt"); //Phone number cannot be blank
     isValid = false;
