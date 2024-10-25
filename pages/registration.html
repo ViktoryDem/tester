@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../css/plusmedlem-styles.css"> 
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <title>PlusMedlem Registration</title>
+</head>
+
+<body class="pml-registration">
+  <header class="pml-registration-header">
+    <div class="wrapper">
+      <a href="../index.html" class="pml-registration-logo">
+        <img src="../img/registartion/PlusMedlem-logo.svg" alt="Logo">
+      </a>
+    </div>
+  </header>
+  <main class="pml-main">
+    <section class="pml-rate">
+      <div class="wrapper">
+        <div class="pml-registration-card">
+          <div class="pml-rate__img">
+            <img src="../img/registartion/mob-screen.png" alt="Screenshot">
+          </div>
+          <h2 class="pml-registration-card__title pml-rate__title">
+            Digital
+          </h2>
+          <div class="pml-rate__price">7 dage for 1 kr. *</div>
+          <div class="txt-center">
+            <ul class="pml-check-list">
+              <li><b>Adgang til alle artikler på politiken.dk</b></li>
+              <li>Podcasts og oplæste artikler</li>
+              <li>Rabat på Politiken Live-arrangementer</li>
+              <li>Fordele hos Politiken Plus</li>
+              <li><b>Herefter 299 kr./md</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pml-registration-form">
+      <div class="wrapper ">
+        <div class="pml-registration-card">
+          <form id="pml-form">
+            <div>
+              <h2 class="pml-registration-card__title">INDTAST DINE OPLYSNINGER</h2>
+              <div class="pml-user-contacts">
+                <div class="pml-input-field">
+                  <label for="email" class="pml-input-label">Email *</label>
+                  <input type="text" id="email" name="email" class="pml-input" onblur="validateEmail()" />
+                  <div class="pml-error-text"></div>
+                </div>
+                <div class="pml-input-field">
+                  <label for="phone" class="pml-input-label">Telefonnr. *</label>
+                  <input type="text" id="phone" class="pml-input" name="phone" placeholder="+45"
+                    onblur="validatePhoneNumber()" />
+                  <div class="pml-error-text"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class=" pml-registration-card__title">VÆLG BETALINGSMETODE
+                </div>
+                <div class="pml-payment-method">
+                  <div class="pml-payment-method__item pml-payment-method__item_with-icon">
+                    <input type="radio" id="mobilepay" name="payment-method" value="mobilepay" checked />
+                    <label for="mobilepay">Betal med MobilePay <span
+                        class="pml-payment-method__recomend">Recommend</span></label>
+                  </div>
+
+                  <div class="pml-payment-method__item">
+                    <input type="radio" id="kreditkort" name="payment-method" value="kreditkort" />
+                    <label for="kreditkort">Betal med kreditkort</label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="pml-terms">
+                <input type="checkbox" id="terms" name="terms" onchange="validateTerms()" />
+                <label for="terms">Ja, jeg accepterer <a href="#">abonnementsvilkårene</a></label>
+                <div class="pml-error-text"></div>
+              </div>
+            </div>
+            <div class="txt-center">
+              <button class="pml-btn pml-btn_big" type="submit">Gå til betaling</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <script src="../js/plusmedlem-registration-scripts.js"></script>
+</body>
+
+</html>
