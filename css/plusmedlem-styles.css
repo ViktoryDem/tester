@@ -998,8 +998,8 @@ input.pml-input:-webkit-autofill:active {
   width: 8px;
   height: 8px;
   position: absolute;
-  top: 29px;
-  left: 19px;
+  top: calc(50% - 4px);
+  left: 18px;
   content: " ";
   display: block;
   background: #355050;
