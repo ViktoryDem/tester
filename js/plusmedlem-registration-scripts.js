@@ -12,34 +12,13 @@ form.addEventListener("submit", (e) => {
 email.addEventListener("focus", function () {
   hideErrorFor(email);
 });
-phone.addEventListener("input", function (e) {
-  let value = phone.value;
-  if (value.length < 3 || value.slice(0, 3) !== "+45") {
-    phone.value =
-      "+45" +
-      value
-        .slice(3)
-        .replace(/[^0-9]/g, "")
-        .slice(0, 8);
-  } else if (value.length > 3) {
-    phone.value =
-      "+45" +
-      value
-        .slice(3)
-        .replace(/[^0-9]/g, "")
-        .slice(0, 8);
-  }
-});
+
 phone.addEventListener("focus", function () {
   hideErrorFor(phone);
-  if (phone.value === "") {
-    phone.value = "+45";
-  }
 });
-phone.addEventListener("blur", function () {
-  if (phone.value === "+45") {
-    phone.value = "";
-  }
+phone.addEventListener("input", function () {
+  const value = this.value.replace(/\D/g, "");
+  this.value = value.slice(0, 8);
 });
 
 function validateRegistrationForm() {
@@ -66,11 +45,11 @@ function validateEmail() {
 }
 
 function validatePhoneNumber() {
-  let phoneValue = phone.value.trim();
-  if (phoneValue === "" || phoneValue.length <= 3) {
+  let phoneValue = phone.value;
+  if (phoneValue === "") {
     setErrorFor(phone, "Telefonnummeret må ikke være tomt"); //Phone number cannot be blank
     isValid = false;
-  } else if (phoneValue.length < 11) {
+  } else if (phoneValue !== "" && phoneValue.length < 8) {
     setErrorFor(phone, "Telefonnummeret er ikke gyldigt"); //Phone number is not valid
     isValid = false;
   } else {
@@ -89,7 +68,7 @@ function validateTerms() {
 
 // If there is some error in input
 function setErrorFor(input, message) {
-  let formControl = input.parentElement;
+  let formControl = input.closest(".pml-input-field");
   let errorElement = formControl.querySelector(".pml-error-text");
   if (!formControl.classList.contains("error")) {
     formControl.classList.add("error");
@@ -100,7 +79,7 @@ function setErrorFor(input, message) {
 }
 
 function hideErrorFor(input) {
-  let formControl = input.parentElement;
+  let formControl = input.closest(".pml-input-field");
   if (formControl.classList.contains("error")) {
     formControl.classList.remove("error");
   }
@@ -111,7 +90,7 @@ function hideErrorFor(input) {
 
 // If there is no error in input
 function setSuccessFor(input) {
-  let formControl = input.parentElement;
+  let formControl = input.closest(".pml-input-field");
   let errorElement = formControl.querySelector(".pml-error-text");
   if (errorElement) {
     errorElement.innerText = "";

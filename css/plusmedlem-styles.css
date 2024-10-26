@@ -841,8 +841,8 @@ input.pml-input:-webkit-autofill:active {
   -webkit-text-fill-color: #282828;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
   background-color: transparent;
+  box-shadow: 2px 2px 2px 1px #fff;
 }
 
 .pml-input {
@@ -885,11 +885,36 @@ input.pml-input:-webkit-autofill:active {
   font-size: 12px;
 }
 
+.phone-wrapper {
+  position: relative;
+}
+.phone-wrapper:before {
+  content: "+45";
+  position: absolute;
+  line-height: 30px;
+  z-index: 1;
+}
+.phone-wrapper .pml-input {
+  padding-left: 24px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
 .pml-input-field.error .pml-input {
   color: red;
   border-color: red;
 }
+.pml-input-field.error input.pml-input:-webkit-autofill,
+.pml-input-field.error input.pml-input:-webkit-autofill:hover,
+.pml-input-field.error input.pml-input:-webkit-autofill:focus,
+.pml-input-field.error input.pml-input:-webkit-autofill:active {
+  -webkit-text-fill-color: red;
+}
 .pml-input-field.error .pml-input-label {
+  color: red;
+}
+.pml-input-field.error .phone-wrapper:before {
   color: red;
 }
 
