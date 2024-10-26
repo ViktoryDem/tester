@@ -967,6 +967,7 @@ input.pml-input:-webkit-autofill:active {
   font-size: 14px;
   padding: 23px 16px 23px 40px;
   padding-left: 16px;
+  position: relative;
 }
 .pml-payment-method__item label:before {
   content: " ";
