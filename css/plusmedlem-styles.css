@@ -952,6 +952,12 @@ input.pml-input:-webkit-autofill:active {
 
 .pml-payment-method__item {
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .pml-payment-method__item label {
   cursor: pointer;
@@ -1017,6 +1023,12 @@ input.pml-input:-webkit-autofill:active {
 
 .pml-terms {
   font-size: 12px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .pml-terms a {
   font-weight: 600;
