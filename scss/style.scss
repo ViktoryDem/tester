@@ -794,24 +794,46 @@ input.pml-input:-webkit-autofill:active {
   }
 }
 
-.pml-input-field_phone {
+// .pml-input-field_phone {
+//   position: relative;
+//   &:before {
+//     content: "+45";
+//     position: absolute;
+//     bottom: 17px;
+//     line-height: 30px;
+//     z-index: 1;
+//     color: #a9a9a9;
+//   }
+//   .pml-input {
+//     padding-left: 24px;
+//     z-index: 2;
+//   }
+//   &.active {
+//     &:before {
+//       color: #282828;
+//     }
+//   }
+// }
+.phone-wrapper {
   position: relative;
+
   &:before {
     content: "+45";
     position: absolute;
-    bottom: 17px;
     line-height: 30px;
     z-index: 1;
     color: #a9a9a9;
   }
   .pml-input {
     padding-left: 24px;
+    position: relative;
     z-index: 2;
+    width: 100%;
   }
-  &.active {
-    &:before {
-      color: #282828;
-    }
+}
+.pml-input-field.active {
+  .phone-wrapper:before {
+    color: #282828;
   }
 }
 
@@ -837,7 +859,10 @@ input.pml-input:-webkit-autofill:active {
   .pml-input-label {
     color: red;
   }
-  &:before {
+  // &:before {
+  //   color: red;
+  // }
+  .phone-wrapper:before {
     color: red;
   }
 }
@@ -869,7 +894,6 @@ input.pml-input:-webkit-autofill:active {
   }
 }
 .pml-payment-method__item {
-  // position: relative;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -891,15 +915,11 @@ input.pml-input:-webkit-autofill:active {
     position: relative;
     &:before {
       content: " ";
-      // display: inline-block;
-
       display: block;
       position: absolute;
-      top: 26px;
+      top: 50%;
+      transform: translateY(-50%);
       left: 15px;
-
-      // top: 0;
-      // margin: 0 11px 0 0;
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -924,10 +944,9 @@ input.pml-input:-webkit-autofill:active {
       width: 8px;
       height: 8px;
       position: absolute;
-      top: 28px;
+      top: 50%;
+      transform: translateY(-50%);
       left: 17px;
-      // top: 29px;
-      // left: 19px;
       content: " ";
       display: block;
       background: #355050;
@@ -947,21 +966,6 @@ input.pml-input:-webkit-autofill:active {
     }
     label {
       padding-right: 50px;
-    }
-  }
-}
-
-.pml-payment-method__item_test {
-  label {
-    &:before {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-  input[type="radio"] {
-    &:checked + label:after {
-      top: 50%;
-      transform: translateY(-50%);
     }
   }
 }

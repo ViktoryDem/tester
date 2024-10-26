@@ -877,22 +877,24 @@ input.pml-input:-webkit-autofill:active {
   color: #282828;
 }
 
-.pml-input-field_phone {
+.phone-wrapper {
   position: relative;
 }
-.pml-input-field_phone:before {
+.phone-wrapper:before {
   content: "+45";
   position: absolute;
-  bottom: 17px;
   line-height: 30px;
   z-index: 1;
   color: #a9a9a9;
 }
-.pml-input-field_phone .pml-input {
+.phone-wrapper .pml-input {
   padding-left: 24px;
+  position: relative;
   z-index: 2;
+  width: 100%;
 }
-.pml-input-field_phone.active:before {
+
+.pml-input-field.active .phone-wrapper:before {
   color: #282828;
 }
 
@@ -917,7 +919,7 @@ input.pml-input:-webkit-autofill:active {
 .pml-input-field.error .pml-input-label {
   color: red;
 }
-.pml-input-field.error:before {
+.pml-input-field.error .phone-wrapper:before {
   color: red;
 }
 
@@ -977,7 +979,8 @@ input.pml-input:-webkit-autofill:active {
   content: " ";
   display: block;
   position: absolute;
-  top: 26px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 15px;
   width: 10px;
   height: 10px;
@@ -1003,7 +1006,8 @@ input.pml-input:-webkit-autofill:active {
   width: 8px;
   height: 8px;
   position: absolute;
-  top: 28px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 17px;
   content: " ";
   display: block;
@@ -1024,15 +1028,6 @@ input.pml-input:-webkit-autofill:active {
 }
 .pml-payment-method__item_with-icon label {
   padding-right: 50px;
-}
-
-.pml-payment-method__item_test label:before {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.pml-payment-method__item_test input[type=radio]:checked + label:after {
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .pml-terms {

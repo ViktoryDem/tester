@@ -15,7 +15,7 @@ email.addEventListener("focus", function () {
 
 phone.addEventListener("focus", function () {
   hideErrorFor(phone);
-  phone.parentElement.classList.add("active");
+  phone.closest(".pml-input-field").classList.add("active");
 });
 phone.addEventListener("input", function () {
   const value = this.value.replace(/\D/g, "");
@@ -70,7 +70,7 @@ function validateTerms() {
 
 // If there is some error in input
 function setErrorFor(input, message) {
-  let formControl = input.parentElement;
+  let formControl = input.closest(".pml-input-field");
   let errorElement = formControl.querySelector(".pml-error-text");
   if (!formControl.classList.contains("error")) {
     formControl.classList.add("error");
@@ -81,7 +81,7 @@ function setErrorFor(input, message) {
 }
 
 function hideErrorFor(input) {
-  let formControl = input.parentElement;
+  let formControl = input.closest(".pml-input-field");
   if (formControl.classList.contains("error")) {
     formControl.classList.remove("error");
   }
@@ -92,7 +92,7 @@ function hideErrorFor(input) {
 
 // If there is no error in input
 function setSuccessFor(input) {
-  let formControl = input.parentElement;
+  let formControl = input.closest(".pml-input-field");
   let errorElement = formControl.querySelector(".pml-error-text");
   if (errorElement) {
     errorElement.innerText = "";
