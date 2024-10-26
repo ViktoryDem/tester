@@ -951,6 +951,21 @@ input.pml-input:-webkit-autofill:active {
   }
 }
 
+.pml-payment-method__item_test {
+  label {
+    &:before {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  input[type="radio"] {
+    &:checked + label:after {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
 .pml-terms {
   font-size: 12px;
   -webkit-tap-highlight-color: transparent;
