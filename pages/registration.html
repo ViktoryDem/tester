@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="../css/plusmedlem-styles.css">
+  <!-- <link rel="stylesheet" href="css/plusmedlem-styles.css"> -->
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <title>PlusMedlem Registration</title>
 </head>
@@ -54,12 +55,10 @@
                   <input type="text" id="email" name="email" class="pml-input" onblur="validateEmail()" />
                   <div class="pml-error-text"></div>
                 </div>
-                <div class="pml-input-field">
+                <div class="pml-input-field pml-input-field_phone">
                   <label for="phone" class="pml-input-label">Telefonnr. *</label>
-                  <div class="phone-wrapper">
-                    <input type="text" id="phone" class="pml-input" name="phone" onblur="validatePhoneNumber()">
-                    <div class="pml-error-text"></div>
-                  </div>
+                  <input type="text" id="phone" class="pml-input" name="phone" onblur="validatePhoneNumber()">
+                  <div class="pml-error-text"></div>
                 </div>
               </div>
 
@@ -80,7 +79,7 @@
                 </div>
 
               </div>
-              <div class="pml-terms pml-input-field">
+              <div class="pml-terms">
                 <input type="checkbox" id="terms" name="terms" onchange="validateTerms()" />
                 <label for="terms">Ja, jeg accepterer <a href="#">abonnementsvilkårene</a></label>
                 <div class="pml-error-text"></div>
